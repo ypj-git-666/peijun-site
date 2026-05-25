@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<slot />
+
+<script is:inline>
+function switchL1(t,el){
+  document.getElementById('panel-mine').style.display=t==='mine'?'block':'none';
+  document.getElementById('panel-guest').style.display=t==='guest'?'block':'none';
+  document.querySelectorAll('.tab-l1').forEach(e=>e.classList.remove('active'));
+  el.classList.add('active');
+}
+function switchL2(t,el){
+  document.getElementById('panel-observe').style.display=t==='observe'?'block':'none';
+  document.getElementById('panel-notes').style.display=t==='notes'?'block':'none';
+  document.querySelectorAll('.tab-l2').forEach(e=>e.classList.remove('active'));
+  el.classList.add('active');
+}
+function toggleFull(id,btn){
+  var el=document.getElementById(id);
+  var open=el.style.display==='block';
+  el.style.display=open?'none':'block';
+  btn.classList.toggle('open');
+  btn.querySelector('.arrow').textContent=open?'\u25BC':'\u25B2';
+  var zhSpan=btn.querySelector('.zh');
+  var enSpan=btn.querySelector('.en');
+  if(zhSpan)zhSpan.textContent=open?'展开全文':'收起';
+  if(enSpan)enSpan.textContent=open?'Read more':'Collapse';
+}
+function toggleLang(){
+  var html=document.documentElement;
+  var isZh=html.lang==='zh-CN';
+  html.lang=isZh?'en':'zh-CN';
+  document.getElementById('langZh').className=isZh?'off':'on';
+  document.getElementById('langEn').className=isZh?'on':'off';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+backend:
+  name: github
+  repo: ypj-git-666/peijun-site
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "observations"
+    label: "观察 Observations"
+    folder: "src/content/observations"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "标题 Title", name: "title", widget: "string" }
+      - { label: "日期 Date", name: "date", widget: "datetime" }
+      - { label: "节选 Excerpt", name: "excerpt", widget: "text" }
+      - { label: "外链 Link", name: "link", widget: "string", required: false }
+      - { label: "正文 Body", name: "body", widget: "markdown" }
+
+  - name: "notes"
+    label: "随笔 Notes"
+    folder: "src/content/notes"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "标题 Title", name: "title", widget: "string" }
+      - { label: "日期 Date", name: "date", widget: "datetime" }
+      - { label: "类型 Type", name: "type", widget: "select", options: ["词", "骈文", "现代诗", "散文", "小说"] }
+      - { label: "节选 Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "外链 Link", name: "link", widget: "string", required: false }
+      - { label: "正文 Body", name: "body", widget: "markdown" }
+
+  - name: "guest"
+    label: "友人投稿 Guest Posts"
+    folder: "src/content/guest"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "标题 Title", name: "title", widget: "string" }
+      - { label: "作者 Author", name: "author", widget: "string" }
+      - { label: "日期 Date", name: "date", widget: "datetime" }
+      - { label: "正文 Body", name: "body", widget: "markdown" }
