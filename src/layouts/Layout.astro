@@ -36,16 +36,23 @@ function toggleFull(id,btn){
   btn.classList.toggle('open');
   btn.querySelector('.arrow').textContent=open?'\u25BC':'\u25B2';
   var zhSpan=btn.querySelector('.zh');
+  var zhtSpan=btn.querySelector('.zht');
   var enSpan=btn.querySelector('.en');
   if(zhSpan)zhSpan.textContent=open?'展开全文':'收起';
+  if(zhtSpan)zhtSpan.textContent=open?'展開全文':'收起';
   if(enSpan)enSpan.textContent=open?'Read more':'Collapse';
 }
+function setLang(lang){
+  document.documentElement.lang=lang;
+  document.getElementById('langZhCN').className=lang==='zh-CN'?'on':'off';
+  document.getElementById('langZhTW').className=lang==='zh-TW'?'on':'off';
+  document.getElementById('langEn').className=lang==='en'?'on':'off';
+}
 function toggleLang(){
-  var html=document.documentElement;
-  var isZh=html.lang==='zh-CN';
-  html.lang=isZh?'en':'zh-CN';
-  document.getElementById('langZh').className=isZh?'off':'on';
-  document.getElementById('langEn').className=isZh?'on':'off';
+  var cur=document.documentElement.lang;
+  if(cur==='zh-CN')setLang('zh-TW');
+  else if(cur==='zh-TW')setLang('en');
+  else setLang('zh-CN');
 }
 </script>
 </body>
