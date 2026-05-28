@@ -66,6 +66,18 @@ function collapseFromFloat(){
   toggleFull(_openFullId,_openFullBtn);
   if(item)item.scrollIntoView({behavior:'smooth',block:'start'});
 }
+(function(){
+  var card=document.getElementById('neic-card');
+  if(!card)return;
+  var hadSelection=false;
+  card.addEventListener('mousedown',function(){
+    hadSelection=window.getSelection().toString().length>0;
+  });
+  card.addEventListener('mouseup',function(){
+    var sel=window.getSelection().toString();
+    if(!sel&&!hadSelection)window.open('https://icnb3u8b3syx.feishu.cn/wiki/K8d7wqPMgircVAkQKjNcaCwLneb','_blank');
+  });
+})();
 function setLang(lang){
   document.documentElement.lang=lang;
   document.getElementById('langZhCN').className=lang==='zh-CN'?'on':'off';
