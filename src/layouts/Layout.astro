@@ -33,6 +33,19 @@ function switchL2(t,el){
   document.querySelectorAll('.tab-l2').forEach(e=>e.classList.remove('active'));
   el.classList.add('active');
 }
+function toggleSub(id,btn){
+  var el=document.getElementById(id);
+  var open=el.style.display==='block';
+  el.style.display=open?'none':'block';
+  btn.classList.toggle('open');
+  btn.querySelector('.arrow').textContent=open?'\u25BC':'\u25B2';
+  var zhSpan=btn.querySelector('.zh');
+  var zhtSpan=btn.querySelector('.zht');
+  var enSpan=btn.querySelector('.en');
+  if(zhSpan)zhSpan.textContent=open?'展开':'收起';
+  if(zhtSpan)zhtSpan.textContent=open?'展開':'收起';
+  if(enSpan)enSpan.textContent=open?'Expand':'Collapse';
+}
 var _openFullId=null;
 var _openFullBtn=null;
 function toggleFull(id,btn){
