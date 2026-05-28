@@ -137,6 +137,15 @@ h1::after{content:'';position:absolute;bottom:-2px;left:0;width:60%;height:3px;b
 .guest-ph{font-size:13px;color:var(--muted);font-style:italic;padding:2.5rem 0;text-align:center}
 .lit-note{font-size:12px;color:var(--muted);font-style:italic;margin-bottom:1rem}
 
+/* CONNECT ROW */
+.connect-row{margin-top:1.2rem}
+.connect-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;background:var(--warmBg);color:var(--warmText);border-radius:100px;text-decoration:none;font-size:13px;font-weight:400;transition:all .3s var(--spring)}
+.connect-pill:hover{background:#e0d0b8;transform:translateY(-2px);box-shadow:0 4px 12px rgba(139,111,71,0.12)}
+.connect-pill:active{transform:translateY(0) scale(0.98)}
+.connect-pill svg{flex-shrink:0;color:var(--warm)}
+.connect-label{font-weight:500}
+.connect-addr{color:var(--warm)}
+
 /* SOCIAL ICONS ROW */
 .social-row{display:flex;gap:10px;margin-top:1.2rem;flex-wrap:wrap}
 .social-icon{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:1px solid rgba(0,0,0,0.08);color:var(--muted);transition:all .4s var(--spring);text-decoration:none}
