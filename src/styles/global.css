@@ -78,9 +78,6 @@ h1::after{content:'';position:absolute;bottom:-2px;left:0;width:60%;height:3px;b
 .tag.warm:hover{background:#e8d9c2;transform:translateY(-1px) scale(1.04)}
 .tag.ghost{background:transparent;border:1px dashed rgba(0,0,0,0.15);color:var(--muted)}
 
-/* CLICKABLE CARD */
-.card-clickable *{user-select:text;-webkit-user-select:text}
-
 /* CARDS */
 .card{background:var(--card);border:0.5px solid rgba(139,111,71,0.06);border-radius:var(--radius);padding:1.5rem 1.6rem;margin-bottom:0.9rem;box-shadow:var(--shadow-sm),inset 0 1px 0 rgba(255,255,255,0.7);transition:box-shadow .4s var(--spring),transform .4s var(--spring),border-color .4s var(--spring);position:relative;overflow:hidden}
 .card:hover{box-shadow:var(--shadow-md),inset 0 1px 0 rgba(255,255,255,0.7);transform:translateY(-4px);border-color:rgba(139,111,71,0.15)}
