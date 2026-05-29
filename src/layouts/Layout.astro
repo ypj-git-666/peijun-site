@@ -30,7 +30,7 @@ function switchL1(t,el){
 function switchL2(t,el){
   document.getElementById('panel-observe').style.display=t==='observe'?'block':'none';
   document.getElementById('panel-notes').style.display=t==='notes'?'block':'none';
-  document.querySelectorAll('.tab-l2').forEach(e=>e.classList.remove('active'));
+  el.parentElement.querySelectorAll('.tab-l2').forEach(function(e){e.classList.remove('active')});
   el.classList.add('active');
 }
 function toggleSub(id,btn){
@@ -78,6 +78,12 @@ function collapseFromFloat(){
   var item=document.getElementById(_openFullId).closest('.item');
   toggleFull(_openFullId,_openFullBtn);
   if(item)item.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function switchMedia(t,el){
+  document.getElementById('panel-podcast').style.display=t==='podcast'?'block':'none';
+  document.getElementById('panel-video').style.display=t==='video'?'block':'none';
+  document.getElementById('media-tabs').querySelectorAll('.tab-l2').forEach(function(e){e.classList.remove('active')});
+  el.classList.add('active');
 }
 function setLang(lang){
   document.documentElement.lang=lang;

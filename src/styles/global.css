@@ -149,6 +149,15 @@ h1::after{content:'';position:absolute;bottom:-2px;left:0;width:60%;height:3px;b
 .social-icon:active{transform:translateY(0) scale(0.95)}
 .social-icon-text{width:auto;padding:0 10px;font-size:11px;font-weight:400;border-radius:100px;letter-spacing:0.3px}
 
+/* MEDIA CARDS */
+.media-card{display:flex;gap:1rem;padding:1rem;border-radius:8px;text-decoration:none;color:inherit;cursor:pointer;border-bottom:0.5px solid var(--line);transition:background .3s var(--spring)}
+.media-card:last-child{border-bottom:none}
+.media-card:hover{background:rgba(139,111,71,0.015)}
+.media-card img{width:140px;height:90px;object-fit:cover;border-radius:6px;flex-shrink:0}
+.media-card .media-info-title{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink);margin:0 0 0.25rem;line-height:1.4}
+.media-card .media-info-meta{font-size:12px;color:var(--muted);margin:0 0 0.4rem}
+.media-card .media-info-desc{font-size:13px;color:var(--text);font-weight:300;margin:0;line-height:1.7}
+
 /* MEDIA PLACEHOLDER */
 .media-placeholder{text-align:center;padding:3rem 1.5rem;border:1.5px dashed rgba(0,0,0,0.08);border-radius:var(--radius);background:rgba(139,111,71,0.015)}
 .media-icon{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(139,111,71,0.06);color:var(--warm);margin-bottom:1rem}
