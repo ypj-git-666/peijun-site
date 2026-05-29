@@ -85,6 +85,17 @@ function switchMedia(t,el){
   document.getElementById('media-tabs').querySelectorAll('.tab-l2').forEach(function(e){e.classList.remove('active')});
   el.classList.add('active');
 }
+function togglePlatforms(trigger){
+  var popup=trigger.parentElement.querySelector('.platform-popup');
+  var isOpen=popup.classList.contains('open');
+  document.querySelectorAll('.platform-popup.open').forEach(function(p){p.classList.remove('open')});
+  if(!isOpen)popup.classList.add('open');
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.platform-select')){
+    document.querySelectorAll('.platform-popup.open').forEach(function(p){p.classList.remove('open')});
+  }
+});
 function setLang(lang){
   document.documentElement.lang=lang;
   document.getElementById('langZhCN').className=lang==='zh-CN'?'on':'off';
