@@ -168,6 +168,22 @@ h1::after{content:'';position:absolute;bottom:-2px;left:0;width:60%;height:3px;b
 .media-icon{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(139,111,71,0.06);color:var(--warm);margin-bottom:1rem}
 .media-placeholder p{font-size:14px;color:var(--muted);margin:0}
 
+/* BOOKSHELF */
+.book-card{display:flex;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--line)}
+.book-card:last-child{border-bottom:none}
+.book-left{flex:0 0 35%;min-width:0}
+.book-right{flex:1;min-width:0}
+.book-title{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--ink);line-height:1.5;margin-bottom:0.35rem}
+.book-author{font-size:13px;color:var(--text);margin-bottom:0.5rem}
+.book-oneliner{font-size:12.5px;color:var(--muted);line-height:1.6}
+.book-review{font-size:14px;color:var(--text);line-height:1.85}
+.book-review p{margin-bottom:0.75rem}
+.book-review p:last-child{margin-bottom:0}
+@media(max-width:600px){
+  .book-card{flex-direction:column;gap:1rem}
+  .book-left{flex:none}
+}
+
 /* FOOTER */
 footer{padding:2.5rem 0 3.5rem;position:relative}
 footer::before{content:'';display:block;width:100%;height:1.5px;background:linear-gradient(90deg,transparent 0%,var(--line) 15%,rgba(139,111,71,0.18) 50%,var(--line) 85%,transparent 100%);margin-bottom:2rem}

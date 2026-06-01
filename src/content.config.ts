@@ -26,4 +26,19 @@ const media = defineCollection({
   }),
 });
 
-export const collections = { observations, notes, guest, media };
+const bookshelf = defineCollection({
+  loader: glob({ pattern: '**/[!_]*.json', base: 'src/content/bookshelf' }),
+  schema: z.object({
+    title: z.string(),
+    author: z.string(),
+    oneLiner: z.string(),
+    review: z.string(),
+    category: z.enum(['book', 'bookstore']),
+    date: z.string().optional(),
+    cover: z.string().optional(),
+    location: z.string().optional(),
+    url: z.string().optional(),
+  }),
+});
+
+export const collections = { observations, notes, guest, media, bookshelf };

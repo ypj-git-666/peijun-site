@@ -80,6 +80,12 @@ function collapseFromFloat(){
   toggleFull(_openFullId,_openFullBtn);
   if(item)item.scrollIntoView({behavior:'smooth',block:'start'});
 }
+function switchBookshelf(t,el){
+  document.getElementById('panel-reading').style.display=t==='reading'?'block':'none';
+  document.getElementById('panel-bookstores').style.display=t==='bookstores'?'block':'none';
+  document.getElementById('bookshelf-tabs').querySelectorAll('.tab-l2').forEach(function(e){e.classList.remove('active')});
+  el.classList.add('active');
+}
 function switchMedia(t,el){
   document.getElementById('panel-podcast').style.display=t==='podcast'?'block':'none';
   document.getElementById('panel-video').style.display=t==='video'?'block':'none';
