@@ -118,7 +118,14 @@ h1::after{content:'';position:absolute;bottom:-2px;left:0;width:60%;height:3px;b
 .item-meta{font-size:11px;color:var(--muted);margin-bottom:.45rem;letter-spacing:0.5px}
 .item-note{font-size:12px;color:var(--muted);font-style:italic;margin-bottom:.4rem}
 .item-excerpt{font-size:13px;line-height:1.8;color:var(--text);font-weight:300;margin-bottom:.5rem}
-.item-full{display:none;font-size:13px;line-height:1.9;color:var(--text);font-weight:300;margin-bottom:.5rem;white-space:pre-line}
+.item-full{display:none;font-size:13px;line-height:1.9;color:var(--text);font-weight:300;margin-bottom:.5rem}
+.item-full p{margin-bottom:1.2rem;line-height:1.9}
+.item-full p:last-child{margin-bottom:0}
+.item-full .article-heading{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink);margin:2rem 0 1rem;line-height:1.5}
+.item-full .article-heading:first-child{margin-top:0}
+.item-full .article-refs{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.item-full .article-refs a{color:var(--warm);text-decoration:none;transition:color .3s var(--spring)}
+.item-full .article-refs a:hover{color:var(--ink);text-decoration:underline}
 .item-full.lit{font-family:var(--serif);font-size:14.5px;line-height:2.15;color:var(--ink)}
 .toggle{font-size:12px;color:var(--warm);cursor:pointer;display:inline-flex;align-items:center;gap:4px;border:none;background:none;font-family:var(--sans);transition:color .3s var(--spring),background .3s var(--spring);padding:3px 8px;border-radius:6px}
 .toggle:hover{color:var(--ink);background:rgba(139,111,71,0.06)}
