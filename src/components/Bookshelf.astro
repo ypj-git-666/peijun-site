@@ -1,3 +1,11 @@
+---
+import books from '../data/books.json';
+import bookstores from '../data/bookstores.json';
+
+// Get unique cities in order of first appearance
+const cities = [...new Map(bookstores.map(b => [b.city.en, b.city])).values()];
+---
+
 <div class="sec-divider"></div>
 
 <section id="bookshelf">
@@ -9,16 +17,58 @@
 </div>
 
 <div id="panel-reading">
-<!-- Book cards will be rendered here from content collection -->
+{books.map((book) => (
+<div class="book-card">
+<div class="book-left">
+<div class="book-title"><span class="zh">{book.titleZh}</span><span class="zht">{book.titleTw}</span><span class="en">{book.titleEn}</span></div>
+<div class="book-author">{book.author}</div>
+<div class="book-oneliner"><span class="zh">{book.oneLinerZh}</span><span class="zht">{book.oneLinerTw}</span><span class="en">{book.oneLinerEn}</span></div>
+</div>
+<div class="book-right">
+<div class="book-review"><span class="zh">{book.reviewZh}</span><span class="zht">{book.reviewTw}</span><span class="en">{book.reviewEn}</span></div>
+</div>
+</div>
+))}
 </div>
 
 <div id="panel-bookstores" style="display:none;">
-<div class="media-placeholder">
-<div class="media-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-<p class="zh">即将更新，敬请期待</p>
-<p class="zht">即將更新，敬請期待</p>
-<p class="en">Coming soon — stay tuned</p>
+<div class="city-filters" id="city-filters">
+{cities.map((city, index) => (
+<button
+  class={`city-btn ${index === 0 ? 'active' : ''}`}
+  onclick={`filterBookstores('${city.en}',this)`}
+  data-city-en={city.en}
+>
+  <span class="zh">{city.zh}</span><span class="zht">{city.tw}</span><span class="en">{city.en}</span>
+</button>
+))}
+</div>
+
+<div class="bookstores-grid" id="bookstores-grid">
+{cities.map((city, cityIndex) => (
+<div class="city-bookstores" data-city={city.en} style={cityIndex === 0 ? '' : 'display:none;'}>
+  {bookstores.filter(b => b.city.en === city.en).map((store) => (
+    <div class="bookstore-tag">
+      {store.name}
+      {store.closed && <span class="closed-badge"><span class="zh">已闭店</span><span class="zht">已閉店</span><span class="en">Closed</span></span>}
+    </div>
+  ))}
+</div>
+))}
 </div>
 </div>
 
 </section>
+
+<script is:inline>
+function filterBookstores(cityEn, btn) {
+  // Update active button
+  document.querySelectorAll('.city-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Show/hide city bookstores
+  document.querySelectorAll('.city-bookstores').forEach(div => {
+    div.style.display = div.getAttribute('data-city') === cityEn ? 'flex' : 'none';
+  });
+}
+</script>

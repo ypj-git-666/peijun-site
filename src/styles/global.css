@@ -77,6 +77,10 @@ h1::after{content:'';position:absolute;bottom:-2px;left:0;width:60%;height:3px;b
 .tag.warm{background:var(--warmBg);color:var(--warmText)}
 .tag.warm:hover{background:#e8d9c2;transform:translateY(-1px) scale(1.04)}
 .tag.ghost{background:transparent;border:1px dashed rgba(0,0,0,0.15);color:var(--muted)}
+.bookshelf-btn{display:inline-flex;align-items:center;gap:6px;margin-top:0.8rem;padding:7px 16px;background:var(--warmBg);color:var(--warmText);border-radius:100px;text-decoration:none;font-size:13px;font-weight:400;transition:all .3s var(--spring)}
+.bookshelf-btn:hover{background:#e0d0b8;transform:translateY(-2px);box-shadow:0 4px 12px rgba(139,111,71,0.12)}
+.bookshelf-btn:active{transform:translateY(0) scale(0.98)}
+.bookshelf-btn svg{flex-shrink:0}
 
 /* CARDS */
 .card{background:var(--card);border:0.5px solid rgba(139,111,71,0.06);border-radius:var(--radius);padding:1.5rem 1.6rem;margin-bottom:0.9rem;box-shadow:var(--shadow-sm),inset 0 1px 0 rgba(255,255,255,0.7);transition:box-shadow .4s var(--spring),transform .4s var(--spring),border-color .4s var(--spring);position:relative;overflow:hidden}
@@ -176,7 +180,7 @@ h1::after{content:'';position:absolute;bottom:-2px;left:0;width:60%;height:3px;b
 .media-placeholder p{font-size:14px;color:var(--muted);margin:0}
 
 /* BOOKSHELF */
-.book-card{display:flex;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--line)}
+.book-card{display:flex;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--line);cursor:default}
 .book-card:last-child{border-bottom:none}
 .book-left{flex:0 0 35%;min-width:0}
 .book-right{flex:1;min-width:0}
@@ -186,6 +190,15 @@ h1::after{content:'';position:absolute;bottom:-2px;left:0;width:60%;height:3px;b
 .book-review{font-size:14px;color:var(--text);line-height:1.85}
 .book-review p{margin-bottom:0.75rem}
 .book-review p:last-child{margin-bottom:0}
+.city-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem}
+.city-btn{font-size:12px;padding:6px 14px;background:var(--tagBg);color:var(--tagText);border:none;border-radius:100px;cursor:pointer;transition:all .3s var(--spring);font-family:var(--sans);font-weight:400}
+.city-btn:hover{background:#e8e5df;transform:translateY(-1px)}
+.city-btn.active{background:var(--warmBg);color:var(--warmText)}
+.bookstores-grid{min-height:200px}
+.city-bookstores{display:flex;flex-wrap:wrap;gap:8px}
+.bookstore-tag{font-size:13px;padding:8px 16px;background:var(--card);border:0.5px solid rgba(139,111,71,0.1);border-radius:8px;color:var(--text);cursor:default;transition:all .3s var(--spring)}
+.bookstore-tag:hover{background:rgba(139,111,71,0.03);border-color:rgba(139,111,71,0.2)}
+.closed-badge{font-size:11px;color:var(--muted);margin-left:6px;font-style:italic}
 @media(max-width:600px){
   .book-card{flex-direction:column;gap:1rem}
   .book-left{flex:none}
