@@ -158,8 +158,6 @@ h1::after{content:'';position:absolute;bottom:-2px;left:0;width:60%;height:3px;b
 .social-icon{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:1px solid rgba(0,0,0,0.08);color:var(--muted);transition:all .4s var(--spring);text-decoration:none}
 .social-icon:hover{color:var(--warm);border-color:rgba(139,111,71,0.25);background:rgba(139,111,71,0.04);transform:translateY(-2px) rotate(8deg)}
 .social-icon:active{transform:translateY(0) scale(0.95)}
-.social-icon img{transition:filter .4s var(--spring)}
-.social-icon:hover img{filter:grayscale(100%) opacity(0.7) sepia(100%) hue-rotate(-15deg) saturate(3)}
 
 /* MEDIA CARDS */
 .media-card{display:flex;gap:1rem;padding:1rem;border-radius:8px;color:inherit;border-bottom:0.5px solid var(--line);transition:background .3s var(--spring)}
