@@ -1,9 +1,5 @@
 ---
 import books from '../data/books.json';
-import bookstores from '../data/bookstores.json';
-
-// Get unique cities in order of first appearance
-const cities = [...new Map(bookstores.map(b => [b.city.en, b.city])).values()];
 ---
 
 <div class="sec-divider"></div>
@@ -32,43 +28,15 @@ const cities = [...new Map(bookstores.map(b => [b.city.en, b.city])).values()];
 </div>
 
 <div id="panel-bookstores" style="display:none;">
-<div class="city-filters" id="city-filters">
-{cities.map((city, index) => (
-<button
-  class={`city-btn ${index === 0 ? 'active' : ''}`}
-  onclick={`filterBookstores('${city.en}',this)`}
-  data-city-en={city.en}
->
-  <span class="zh">{city.zh}</span><span class="zht">{city.tw}</span><span class="en">{city.en}</span>
-</button>
-))}
-</div>
-
-<div class="bookstores-grid" id="bookstores-grid">
-{cities.map((city, cityIndex) => (
-<div class="city-bookstores" data-city={city.en} style={cityIndex === 0 ? '' : 'display:none;'}>
-  {bookstores.filter(b => b.city.en === city.en).map((store) => (
-    <div class="bookstore-tag">
-      {store.name}
-      {store.closed && <span class="closed-badge"><span class="zh">已闭店</span><span class="zht">已閉店</span><span class="en">Closed</span></span>}
-    </div>
-  ))}
-</div>
-))}
+<div class="card" style="cursor:default">
+<div class="card-top"><span class="card-title"><span class="zh">京城书店图</span><span class="zht">京城書店圖</span><span class="en">Glorious Books</span></span></div>
+<div class="card-body"><p>
+<span class="zh">一张北京独立书店的交互地图</span>
+<span class="zht">一張北京獨立書店的互動地圖</span>
+<span class="en">An interactive map of independent bookstores in Beijing</span>
+</p></div>
+<a href="https://gloriousbooks.xyz" target="_blank" rel="noopener noreferrer" style="font-weight:bold; text-decoration:underline; cursor:pointer; display:inline-block; margin-top:0.5rem; color:#000000;"><span class="zh">点击查看详情</span><span class="zht">點擊查看詳情</span><span class="en">Learn More</span></a>
 </div>
 </div>
 
 </section>
-
-<script is:inline>
-function filterBookstores(cityEn, btn) {
-  // Update active button
-  document.querySelectorAll('.city-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-
-  // Show/hide city bookstores
-  document.querySelectorAll('.city-bookstores').forEach(div => {
-    div.style.display = div.getAttribute('data-city') === cityEn ? 'flex' : 'none';
-  });
-}
-</script>
